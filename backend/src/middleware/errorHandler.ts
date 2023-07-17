@@ -22,6 +22,7 @@ const errorHandler: ErrorRequestHandler = (error, request, response, next) => {
       message = "Invalid email/password";
       break;
     case "Not Found":
+    case "User Not Found":
       status = 404;
       message = "Data Not Found";
       break;

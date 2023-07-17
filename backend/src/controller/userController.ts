@@ -3,6 +3,13 @@ import User from "../models/User";
 import { hashPassword, comparePassword } from "../helpers/bcrypt";
 import { signToken } from "../helpers/jwt";
 
+interface AuthenticatedRequest extends Request {
+  user?: {
+    id: number;
+    email: string;
+  };
+}
+
 class UserController {
   public static async register(
     req: Request,
@@ -46,6 +53,26 @@ class UserController {
       };
       const access_token = signToken(payload);
       res.status(200).json({ access_token: access_token });
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  public static async profile(
+    req: AuthenticatedRequest,
+    res: Response,
+    next: NextFunction
+  ): Promise<void> {
+    try {
+      const email = req.user?.email;
+      if (!email) throw { name: "User Not Found" };
+
+      const user = await User.findOne({
+        where: {
+          email,
+        },
+      });
+      res.status(200).json(user);
     } catch (error) {
       next(error);
     }
