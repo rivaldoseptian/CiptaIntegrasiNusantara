@@ -2,10 +2,13 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
+    "watch": "tsc -w",
+    "build": "tsc",
+    "start": "node build/app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/app.ts"
+    "dev": "nodemon build/app.js"
   },
   "keywords": [],
   "author": "",
