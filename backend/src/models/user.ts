@@ -35,10 +35,10 @@ User.init(
       allowNull: false,
       validate: {
         notNull: {
-          msg: "Username cannot Null",
+          msg: "Name cannot Null",
         },
         notEmpty: {
-          msg: "Username cannot Empty",
+          msg: "Name cannot Empty",
         },
       },
     },
