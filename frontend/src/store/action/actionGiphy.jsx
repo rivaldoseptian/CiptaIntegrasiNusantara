@@ -12,7 +12,6 @@ export const fetchGiphy = (payload) => {
 export const handleSearch = (query) => {
   return async (dispatch, getstate) => {
     try {
-      const apiKey = "Wo1JkLhH9dEUGTwdAZZgAJrU7lGFHOkB";
       let url;
       if (query === "") {
         url = `https://api.giphy.com/v1/gifs/trending?api_key=Wo1JkLhH9dEUGTwdAZZgAJrU7lGFHOkB&limit=9&offset=0&rating=g&bundle=messaging_non_clips`;
@@ -29,7 +28,25 @@ export const handleSearch = (query) => {
       const data = response.data;
       const action = fetchGiphy(data);
       dispatch(action);
-      console.log("hello");
+    } catch (error) {
+      console.error(error);
+    }
+  };
+};
+
+export const Ironmanfetch = () => {
+  return async (dispatch, getstate) => {
+    try {
+      let url = `https://api.giphy.com/v1/gifs/search?api_key=Wo1JkLhH9dEUGTwdAZZgAJrU7lGFHOkB&q=ironman&limit=9&offset=0&rating=g&lang=en&bundle=messaging_non_clips`;
+
+      const response = await axios.get(url, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = response.data;
+      const action = fetchGiphy(data);
+      dispatch(action);
     } catch (error) {
       console.error(error);
     }

@@ -1,6 +1,7 @@
 import { createBrowserRouter, Outlet, redirect } from "react-router-dom";
 import SearchGiphy from "../pages/searchGiphy";
 import Home from "../pages/Home";
+import IronmanPage from "../pages/ironManGippy";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
       {
         path: "/giphy",
         element: <SearchGiphy />,
+      },
+      {
+        path: "/ironman",
+        element: <IronmanPage />,
       },
     ],
   },

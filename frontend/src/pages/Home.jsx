@@ -21,7 +21,7 @@ const Home = () => {
         style={{ flexDirection: "column" }}
       >
         <p>
-          <NavLink to="/giphy">IRON MAN GIPHY</NavLink>
+          <NavLink to="/ironman">IRON MAN GIPHY</NavLink>
         </p>
         <p>
           <NavLink to="/giphy">SEARCH YOUR GIPHY</NavLink>
